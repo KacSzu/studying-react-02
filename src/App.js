@@ -36,24 +36,31 @@ function App() {
             Step {step}: {messages[step - 1]}
           </p>
           <div className="buttons">
-            <button
-              style={{ backgroundColor: "#7950f2", color: "white" }}
+            <Button
+              textColor="white"
+              bgColor="#7950f2"
               onClick={handlePrevious}
-              onMouseEnter={() => console.log(`elo`)}
             >
-              Previous
-            </button>
-            <button
-              style={{ backgroundColor: "#7950f2", color: "white" }}
-              onClick={handleNext}
-            >
-              Next
-            </button>
+              <span>👈</span> Previous
+            </Button>
+
+            <Button textColor="white" bgColor="#7950f2" onClick={handleNext}>
+              Next<span>👉</span>
+            </Button>
           </div>
         </div>
       )}
     </>
   );
 }
-
+function Button({ textColor, bgColor, onClick, children }) {
+  return (
+    <button
+      style={{ backgroundColor: bgColor, color: textColor }}
+      onClick={onClick}
+    >
+      {children}
+    </button>
+  );
+}
 export default App;
